@@ -79,6 +79,11 @@ public class Pestaña extends javax.swing.JFrame {
         });
 
         Crear.setText("Crear");
+        Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearActionPerformed(evt);
+            }
+        });
 
         Guardar.setText("Guardar");
 
@@ -261,6 +266,11 @@ public class Pestaña extends javax.swing.JFrame {
        }
           
     }//GEN-LAST:event_Telefono_SeKeyTyped
+
+    private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Creado Exitosamente");
+    }//GEN-LAST:event_CrearActionPerformed
 
     public static void main(String args[]) {
         
