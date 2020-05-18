@@ -53,6 +53,10 @@ public class Pestaña extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         Eliminar = new javax.swing.JButton();
         Modificar = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        Cod = new javax.swing.JTextField();
+        Listar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -79,11 +83,6 @@ public class Pestaña extends javax.swing.JFrame {
         });
 
         Crear.setText("Crear");
-        Crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearActionPerformed(evt);
-            }
-        });
 
         Guardar.setText("Guardar");
 
@@ -160,6 +159,18 @@ public class Pestaña extends javax.swing.JFrame {
 
         Modificar.setText("Modificar");
 
+        Buscar.setText("Buscar");
+
+        jLabel1.setText("Ingrese Codigo:");
+
+        Cod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CodKeyTyped(evt);
+            }
+        });
+
+        Listar.setText("Listar");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -167,23 +178,36 @@ public class Pestaña extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(Eliminar)
-                        .addGap(31, 31, 31)
-                        .addComponent(Modificar)))
+                    .addComponent(Listar)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(Eliminar)
+                            .addGap(31, 31, 31)
+                            .addComponent(Modificar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Cod, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(Buscar))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Eliminar)
-                    .addComponent(Modificar))
+                    .addComponent(Modificar)
+                    .addComponent(Buscar)
+                    .addComponent(jLabel1)
+                    .addComponent(Cod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Listar)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -217,7 +241,7 @@ public class Pestaña extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Salas", jPanel2);
@@ -230,7 +254,7 @@ public class Pestaña extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 581, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Computadores", jPanel3);
@@ -267,10 +291,17 @@ public class Pestaña extends javax.swing.JFrame {
           
     }//GEN-LAST:event_Telefono_SeKeyTyped
 
-    private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Creado Exitosamente");
-    }//GEN-LAST:event_CrearActionPerformed
+    private void CodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodKeyTyped
+        
+         char validar = evt.getKeyChar();
+       
+       if(Character.isLetter(validar)){// isDigit para solo letras
+           
+           getToolkit().beep();
+           evt.consume();  
+       }
+        
+    }//GEN-LAST:event_CodKeyTyped
 
     public static void main(String args[]) {
         
@@ -283,14 +314,18 @@ public class Pestaña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Buscar;
     public javax.swing.JSpinner Cant_Sal;
+    public javax.swing.JTextField Cod;
     public javax.swing.JButton Crear;
     public javax.swing.JTextField Dirrecion_se;
     public javax.swing.JButton Eliminar;
     public javax.swing.JButton Guardar;
+    public javax.swing.JButton Listar;
     public javax.swing.JButton Modificar;
     public javax.swing.JTextField Nombre_Se;
     public javax.swing.JTextField Telefono_Se;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
